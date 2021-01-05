@@ -7,7 +7,9 @@
   <%= f.text_field :username %>
   <%= f.label :password %>
   <%= f.password_field :password %>
-  <%= f.submit %>
+  <%= f.label :experience %>
+  <%= f.select(:experience, ["Novice", "Intermediate", "Expert"], {}, {:class=>"form-control"}) %>
+  <%= f.submit "Register" %>
 <% end %>
 
 <% if flash[:errors] %>

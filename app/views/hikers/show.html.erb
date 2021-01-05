@@ -1,6 +1,9 @@
-<h1> PROFILE PAGE </h1>
+<h1> Welcome, <%= @hiker.name %> </h1>
 
-@hiker.name
-@hiker.username
-@hiker.experience
-@hiker.favorites
+<p><%= @hiker.name %></p>
+<p><%= @hiker.username %></p>
+<p><%= @hiker.experience %></p>
+<% @hiker.favorites.each do |favorite| %>
+  <p><%= favorite.trail.name %></p>
+  <p><%= favorite.rating %></p>
+<% end %>

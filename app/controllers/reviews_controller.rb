@@ -9,18 +9,14 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @review = Review.create(review_params)
-        if review.valid?
-            redirect_to trail_path(@review.trail.id)
-        else
-            flash[:errors] = @review.errors.full_messages
-            # redirect_to trail_path(@review.trail.id)
-        end
+        @current_hiker.reviews << Review.create(review_params)
+        @trail = Trail.find(params[:review][:trail_id])
+        redirect_to @trail
     end
 
     private
 
     def review_params
-        params.require(:review).permit(:text, :hiker_id, :trail_id)
+        params.require(:review).permit(:text, :trail_id)
     end
 end

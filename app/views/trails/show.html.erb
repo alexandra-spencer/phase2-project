@@ -7,11 +7,23 @@
 
 <%=@trail.difficulty%>
 <%=@trail.attraction%>
-<% @trail.reviews.each do |review|%>
-  <%= review %>
+
+<% @trail.favorites.each do |favorite| %>
+  <%= favorite.rating  %>
 <% end %>
 
+<%= form_for(@favorite) do |f| %>
+  <%= f.hidden_field :trail_id, value: @trail.id %>
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
+  <%= f.submit "Favorite" %>
+<% end %>
 
+<%= form_for(@review) do |f| %>
+  <%= f.hidden_field :trail_id, value: @trail.id %>
+  <%= f.text_area :text %>
+  <%= f.submit "Leave Review" %>
+<% end %>
 <!-- link to leave a review ->
 
-<!-- LINK TO RESTAURANTS NEARBY ->
+

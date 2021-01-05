@@ -6,5 +6,8 @@ class TrailsController < ApplicationController
 
     def show
         @trail = Trail.find(params[:id])
+        @favorite = Favorite.new
+        @review = Review.new
     end
+
 end
