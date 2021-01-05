@@ -1,14 +1,17 @@
 <h1> Trail Show Page </h1>
 
-@trail.name
+<%=@trail.name%>
  <!-- SHOW A PIC -->
 
-@trail.location
-@trail.rating
-@trail.difficulty
-@trail.attraction
+<%=@trail.location%>
 
-@trail.reviews
-<!-- link to leave a review -- >
+<%=@trail.difficulty%>
+<%=@trail.attraction%>
+<% @trail.reviews.each do |review|%>
+  <%= review %>
+<% end %>
 
-<!-- LINK TO RESTAURANTS NEARBY -->
+
+<!-- link to leave a review ->
+
+<!-- LINK TO RESTAURANTS NEARBY ->

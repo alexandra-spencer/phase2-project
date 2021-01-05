@@ -1,7 +1,18 @@
- CREATING A NEW USER
+ <h1>Create Account</h1>
 
-<!-- LOGIN FORM
-name
-username
-password
-experience level [collection select]-->
+<%= form_for @hiker do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.submit %>
+<% end %>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p> <%= error %> </p>
+  <% end %>
+<% end %>
+

@@ -3,7 +3,7 @@ class CreateHikers < ActiveRecord::Migration[6.0]
     create_table :hikers do |t|
       t.string :name
       t.string :username
-      t.string :password
+      t.string :password_digest
       t.string :experience
 
       t.timestamps
