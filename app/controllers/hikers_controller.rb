@@ -28,7 +28,6 @@ class HikersController < ApplicationController
         end
     end
 
-
     def new
         @hiker = Hiker.new
     end
@@ -46,12 +45,13 @@ class HikersController < ApplicationController
 
     def edit
         @hiker = Hiker.find(params[:id])
+        @hiker = @current_hiker
     end
 
     def update
         @current_hiker = Hiker.find(params[:id])
-        @current_hiker.update(hiker_params)
-        redirect_to hiker_path(@current_hiker)
+        @current_hiker.update_attributes(hiker_params)
+        redirect_to @current_hiker
     end
 
 

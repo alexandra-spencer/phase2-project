@@ -11,6 +11,5 @@ class FavoritesController < ApplicationController
     params.require(:favorite).permit(:rating, :trail_id)
   end
 
-  # hello
 
 end
