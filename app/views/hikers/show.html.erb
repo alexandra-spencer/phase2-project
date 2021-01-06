@@ -1,9 +1,17 @@
 <h1> Welcome, <%= @hiker.name %> </h1>
 
-<p><%= @hiker.name %></p>
+<h3>Username:</h3>
 <p><%= @hiker.username %></p>
-<p><%= @hiker.experience %></p>
+<p><strong> Experience Level:</strong> <%= @hiker.experience %></p>
+<p><strong> My Favorite Trails: </strong></p>
 <% @hiker.favorites.each do |favorite| %>
-  <p><%= favorite.trail.name %></p>
-  <p><%= favorite.rating %></p>
+  <p><%= link_to(favorite.trail.name, trail_path(favorite.trail.id)) %> || <%= favorite.rating %></p>
+  <img src= <%= @hiker.profile_pic_url %>>
+  <img class="show-img" src="<%= favorite.trail.img_url%>" alt="<%= favorite.trail.name%>">
 <% end %>
+
+
+<%= button_to "Edit Profile", edit_hiker_path(@hiker), method: :get %>
+
+
+

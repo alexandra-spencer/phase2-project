@@ -2,6 +2,10 @@ class HikersController < ApplicationController
 
     skip_before_action :authorized?, only: [:login, :handle_login, :new, :create]
 
+    # Tonight:
+    # upload a profile picture
+    # ActiveStorage => for the images that you would upload => look at Car Finder
+
     def login
         @error = flash[:error]
     end
@@ -15,11 +19,6 @@ class HikersController < ApplicationController
             redirect_to login_path
         end
     end
-
-    def index
-        @hikers = Hiker.all
-    end
-
 
     def show
         @hiker = Hiker.find(params[:id])
@@ -45,7 +44,15 @@ class HikersController < ApplicationController
         end
     end
 
+    def edit
+        @hiker = Hiker.find(params[:id])
+    end
 
+    def update
+        @current_hiker = Hiker.find(params[:id])
+        @current_hiker.update(hiker_params)
+        redirect_to hiker_path(@current_hiker)
+    end
 
 
     private

@@ -1,15 +1,15 @@
  <h1>Create Account</h1>
 
 <%= form_for @hiker do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :experience %>
-  <%= f.select(:experience, ["Novice", "Intermediate", "Expert"], {}, {:class=>"form-control"}) %>
-  <%= f.submit "Register" %>
+  <p><%= f.label :name %></p>
+  <p><%= f.text_field :name %></p>
+  <p><%= f.label :username %></p>
+  <p><%= f.text_field :username %></p>
+  <p><%= f.label :password %></p>
+  <p><%= f.password_field :password %></p>
+  <p><%= f.label :experience %></p>
+  <p><%= f.select(:experience, ["Novice", "Intermediate", "Expert"], {}, {:class=>"form-control"}) %></p>
+  <p><%= f.submit "Register" %></p>
 <% end %>
 
 <% if flash[:errors] %>
