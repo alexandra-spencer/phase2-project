@@ -1,4 +1,5 @@
 class Hiker < ApplicationRecord
+    has_one_attached :avatar
     has_many :favorites
     has_many :trails, through: :favorites
     has_many :reviews

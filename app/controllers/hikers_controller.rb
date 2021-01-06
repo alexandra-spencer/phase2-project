@@ -2,17 +2,14 @@ class HikersController < ApplicationController
 
     skip_before_action :authorized?, only: [:login, :handle_login, :new, :create]
 
-    # Tonight:
-    # upload a profile picture
-    # ActiveStorage => for the images that you would upload => look at Car Finder
-
     def login
         @error = flash[:error]
     end
 
     def handle_login
-        @hiker = Hiker.find_by(name: params[:name])
+        @hiker = Hiker.find_by(username: params[:username])
         if @hiker && @hiker.authenticate(params[:password])
+            session[:hiker_id] = @hiker.id
             redirect_to hiker_path(@hiker)
         else
             flash[:error] = "incorrect username or password"
@@ -46,6 +43,8 @@ class HikersController < ApplicationController
     def edit
         @hiker = Hiker.find(params[:id])
         @hiker = @current_hiker
+        # NEED CLARIFICATION ON THIS
+        # @hiker.avatar.attach(params[:avatar])
     end
 
     def update
@@ -54,10 +53,16 @@ class HikersController < ApplicationController
         redirect_to @current_hiker
     end
 
+    def destroy
+        @current_hiker = Hiker.find(params[:id])
+        @current_hiker.destroy
+        redirect_to homepage_path
+    end
+
 
     private
 
     def hiker_params
-        params.require(:hiker).permit(:name, :username, :password, :experience)
+        params.require(:hiker).permit(:name, :username, :password, :experience, :avatar)
     end
 end

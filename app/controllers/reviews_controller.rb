@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @current_hiker.reviews << Review.create(review_params)
+        @review = Review.create(review_params)
         @trail = Trail.find(params[:review][:trail_id])
         redirect_to @trail
     end
@@ -17,6 +17,6 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:text, :trail_id)
+        params.require(:review).permit(:text, :hiker_id, :trail_id)
     end
 end
