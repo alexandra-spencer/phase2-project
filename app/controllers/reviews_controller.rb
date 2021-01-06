@@ -10,19 +10,25 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @current_hiker.reviews << Review.create(review_params)
-        @trail = Trail.find(params[:review][:trail_id])
-        redirect_to @trail
+        @review =  Review.new(review_params)
+        @review.hiker_id = @current_hiker.id
+
+        if @review.save
+            redirect_to trail_path(@review.trail)
+        else
+            flash[:errors] = "Already reviewed"
+            redirect_to trail_path(@review.trail)
+        end
     end
 
-    def edit 
+    def edit
         @review = Review.find(params[:id])
         @trail = Trail.find(params[:trail_id])
-    end 
+    end
 
     private
 
     def review_params
-        params.require(:review).permit(:text, :rating, :hiker_id, :trail_id)
+        params.require(:review).permit(:text, :rating, :trail_id)
     end
 end

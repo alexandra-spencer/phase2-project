@@ -1,8 +1,15 @@
 class FavoritesController < ApplicationController
 
   def create
-    @current_hiker.favorites << Favorite.create(favorite_params)
-    redirect_to hiker_path(@current_hiker)
+    @favorite = Favorite.new(favorite_params)
+    @favorite.hiker_id = @current_hiker.id
+
+    if @favorite.save
+      redirect_to trail_path(@favorite.trail)
+    else
+      flash[:errors] = "Already favorited"
+      redirect_to trail_path(@favorite.trail)
+    end
   end
 
   private

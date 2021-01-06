@@ -16,6 +16,10 @@
 
 </div>
 
+<% if flash[:error] %>
+    <p><%= flash[:error] %></p>
+<% end %>
+
 <%= form_for(@favorite) do |f| %>
   <%= f.hidden_field :trail_id, value: @trail.id %>
   <%= f.submit "Favorite" %>
@@ -25,23 +29,15 @@
 
 <%= form_for(@review) do |f| %>
   <%= f.hidden_field :trail_id, value: @trail.id %>
-  <%= f.label :rate %>
+   <%= f.label :rate %>
   <%= f.number_field :rating, in: 1..5 %>
-  <%= f.submit "Rate" %>
-<% end %>
-
-
-<br/>
-
-<%= form_for(@review) do |f| %>
-  <%= f.hidden_field :trail_id, value: @trail.id %>
   <%= f.text_area :text %>
   <%= f.submit "Leave a Review" %>
 <% end %>
 
 <p>Reviews:</p>
 <% @trail.reviews.each do |review| %>
-  <% @reviewer_id = review.hiker_id %> 
+  <% @reviewer_id = review.hiker_id %>
   <%= Hiker.all.find(@reviewer_id).name %> - <%= review.text %>
 <% end %>
 

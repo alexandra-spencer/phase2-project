@@ -7,16 +7,19 @@ class Trail < ApplicationRecord
 
     def average_rating
 
-        byebug
         total = 0
-        self.reviews.each do |review| 
-            total += review.rating
-        end 
+        avg_reviews = 0
+        self.reviews.each do |review|
+            if review.rating != nil
+                total += review.rating
+            end
+        end
 
-        amount_reviews = self.reviews.count 
-        avg_reviews = total / amount_reviews.to_f(2)
-
-       avg_reviews 
+        amount_reviews = self.reviews.select{|review| review.rating != nil}.count
+        if amount_reviews > 0
+            avg_reviews = total / amount_reviews.to_f
+        end
+       avg_reviews
     end
 
 end
