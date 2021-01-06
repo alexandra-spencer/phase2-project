@@ -59,6 +59,12 @@ class HikersController < ApplicationController
         redirect_to homepage_path
     end
 
+    def destroy
+        @current_hiker = Hiker.find(params[:id])
+        @current_hiker.destroy
+        redirect_to homepage_path
+    end
+
 
     private
 

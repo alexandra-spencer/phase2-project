@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   get '/login', to: 'hikers#login', as: 'login'
   post "/login_form", to: "hikers#handle_login"
+<<<<<<< HEAD
  
+=======
+>>>>>>> ced11a7d619d297de0b860014f62fc00cb4718d9
 
   delete '/sessions/logout', to: 'sessions#logout', as: 'logout'
 
