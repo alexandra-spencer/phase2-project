@@ -5,7 +5,7 @@
 <p><strong> Experience Level:</strong> <%= @hiker.experience %></p>
 <p><strong> My Favorite Trails: </strong></p>
 <% @hiker.favorites.each do |favorite| %>
-  <p><%= link_to(favorite.trail.name, trail_path(favorite.trail.id)) %> || <%= favorite.rating %></p>
+  <p><%= link_to(favorite.trail.name, trail_path(favorite.trail.id)) %></p>
 
   <%# if @user.avatar.attached? %>
     <#img src= "<%#= url_for(@hiker.avatar) %>">

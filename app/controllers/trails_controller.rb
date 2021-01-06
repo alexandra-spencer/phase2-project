@@ -8,6 +8,9 @@ class TrailsController < ApplicationController
         @trail = Trail.find(params[:id])
         @favorite = Favorite.new
         @review = Review.new
+        # @user_review = Review.find_by(hiker_id)
+        cookies[:last_visited] = @trail.id
     end
+
 
 end

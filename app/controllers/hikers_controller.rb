@@ -48,9 +48,9 @@ class HikersController < ApplicationController
     end
 
     def update
-        @current_hiker = Hiker.find(params[:id])
-        @current_hiker.update_attributes(hiker_params)
-        redirect_to @current_hiker
+        @hiker = Hiker.find(params[:id])
+        @hiker.update(hiker_params)
+        redirect_to hiker_path(@hiker)
     end
 
     def destroy

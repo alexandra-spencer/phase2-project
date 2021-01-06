@@ -48,7 +48,7 @@ Trail.create(name: "Ocean Path & Gorham Mountain Trail"  , location: " Bar Harbo
     img_url: "https://cdn-assets.alltrails.com/uploads/photo/image/18212692/extra_large_2d953cba5e8e6c15fb7518e34ceed9de.jpg")
 
 #favorites
-favorite1 = Favorite.create(rating: 1, hiker_id: mai.id, trail_id: Trail.all.sample.id)
-review1 = Review.create(text: "beautiful, green trees and fresh water...lots of sunshine", hiker_id: mai.id, trail_id: Trail.all.sample.id)
+favorite1 = Favorite.create(hiker_id: mai.id, trail_id: Trail.all.sample.id)
+review1 = Review.create(text: "beautiful, green trees and fresh water...lots of sunshine", rating: 3, hiker_id: mai.id, trail_id: Trail.all.sample.id)
 
 puts "Data Seeded!"

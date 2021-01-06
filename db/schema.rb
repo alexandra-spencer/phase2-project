@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 2021_01_06_021142) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "rating"
     t.integer "hiker_id"
     t.integer "trail_id"
     t.datetime "created_at", precision: 6, null: false
@@ -62,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_01_06_021142) do
 
   create_table "reviews", force: :cascade do |t|
     t.string "text"
+    t.integer "rating"
     t.integer "hiker_id"
     t.integer "trail_id"
     t.datetime "created_at", precision: 6, null: false
