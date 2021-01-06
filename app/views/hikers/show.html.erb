@@ -1,17 +1,24 @@
-<h1> Welcome, <%= @hiker.name %> </h1>
+<h1> Welcome to EmeraldHikes, <%= @hiker.name %> </h1>
 
-<h3>Username:</h3>
-<p><%= @hiker.username %></p>
+
+<p><strong>Username:</strong><%= @hiker.username %></p>
 <p><strong> Experience Level:</strong> <%= @hiker.experience %></p>
 <p><strong> My Favorite Trails: </strong></p>
 <% @hiker.favorites.each do |favorite| %>
   <p><%= link_to(favorite.trail.name, trail_path(favorite.trail.id)) %> || <%= favorite.rating %></p>
-  <img src= <%= @hiker.profile_pic_url %>>
+
+  <% if @user.avatar.attached? %>
+    <img src= "<%= url_for(@hiker.avatar) %>">
+  <% end %>
+
   <img class="show-img" src="<%= favorite.trail.img_url%>" alt="<%= favorite.trail.name%>">
 <% end %>
 
 
 <%= button_to "Edit Profile", edit_hiker_path(@hiker), method: :get %>
 
+<%= button_to "Logout", logout_path, method: :delete %>
+
+<%= button_to "Delete My Account", hiker_path(@hiker), method: :delete %>
 
 

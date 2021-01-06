@@ -10,8 +10,8 @@
   <p><%= f.text_field :name %></p>
   <p><%= f.label :experience %></p>
   <p><%= f.select(:experience, ["Novice", "Intermediate", "Expert"], {}, {:class=>"form-control"}) %></p>
-  <p><%= f.label :profile_pic_url %></p>
-  <p><%= f.file_field :profile_pic_url %></p>
+  <p><%= f.label :avatar %></p>
+  <p><%= f.file_field :avatar %></p>
   <p><%= f.submit "Update" %></p>
 <% end %>
 
