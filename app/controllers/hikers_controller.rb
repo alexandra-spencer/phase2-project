@@ -17,6 +17,10 @@ class HikersController < ApplicationController
         end
     end
 
+    def welcome 
+        @welcome = "Welcome to Emerald Hikes!"
+    end 
+
     def show
         @hiker = Hiker.find(params[:id])
         if @hiker != @current_hiker
@@ -43,8 +47,6 @@ class HikersController < ApplicationController
     def edit
         @hiker = Hiker.find(params[:id])
         @hiker = @current_hiker
-        # NEED CLARIFICATION ON THIS
-        # @hiker.avatar.attach(params[:avatar])
     end
 
     def update
@@ -56,13 +58,7 @@ class HikersController < ApplicationController
     def destroy
         @current_hiker = Hiker.find(params[:id])
         @current_hiker.destroy
-        redirect_to homepage_path
-    end
-
-    def destroy
-        @current_hiker = Hiker.find(params[:id])
-        @current_hiker.destroy
-        redirect_to homepage_path
+        redirect_to welcome_path
     end
 
 

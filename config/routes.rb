@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :trails
   resources :hikers
 
+  get '/', to: 'hikers#welcome', as: 'welcome'
   get '/login', to: 'hikers#login', as: 'login'
   post "/login_form", to: "hikers#handle_login"
 

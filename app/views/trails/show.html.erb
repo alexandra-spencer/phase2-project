@@ -1,24 +1,18 @@
-
 <div>
   <p>
     <h1><%=@trail.name%></h1>
   </p>
 
-  <img class="show-img" src="<%= @trail.img_url %>" alt="<%= @trail.name%>">
+  <img class="show-img" src="<%= @trail.img_url %>" alt="<%= @trail.name%>" width="500" height="400">
 
   <p>Location: <%=@trail.location%></p>
 
   <p>Difficulty: <%=@trail.difficulty%></p>
 
-  <p>Average Rating: <%= @trail.average_rating %> </p>
+  <p>Average Rating: <%= @trail.average_rating %> ★ </p>
 
   <p>Description: <%=@trail.attraction%></p>
-
 </div>
-
-<% if flash[:error] %>
-    <p><%= flash[:error] %></p>
-<% end %>
 
 <%= form_for(@favorite) do |f| %>
   <%= f.hidden_field :trail_id, value: @trail.id %>
@@ -27,17 +21,31 @@
 
 <br/>
 
-<%= form_for(@review) do |f| %>
-  <%= f.hidden_field :trail_id, value: @trail.id %>
-   <%= f.label :rate %>
-  <%= f.number_field :rating, in: 1..5 %>
-  <%= f.text_area :text %>
-  <%= f.submit "Leave a Review" %>
-<% end %>
 
-<p>Reviews:</p>
+   
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    <% end %>
+
+    <%= form_for @review do |f| %>
+      <%= f.hidden_field :trail_id, value: @trail.id %>
+      <p><%= f.label :rate %>
+      <%= f.number_field :rating, in: 1..5 %></p>
+      <p><%= f.text_area :text, class: "form-control" %></p>
+      <%= f.hidden_field(:hiker_id, value: @current_hiker.id) %>
+      <%= f.hidden_field(:trail_id, value: @trail.id) %>
+      <%= f.submit "Post Review", class: "btn btn-group", style: "margin-top: 10px;" %>
+    <% end  %>
+
+
+<div>
+
+<h4>Reviews:</h4>
 <% @trail.reviews.each do |review| %>
   <% @reviewer_id = review.hiker_id %>
-  <%= Hiker.all.find(@reviewer_id).name %> - <%= review.text %>
+  <p><%= Hiker.all.find(@reviewer_id).username %> - <%= review.text %></p>
 <% end %>
 
+</div>

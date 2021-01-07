@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+
+body {  
+    background-color: rgb(216, 234, 240);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {  
+    color: white;  
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+p {  
+    font-family: 'Noto Sans', sans-serif; 
+    font-size: 20px;
+}
+
+#wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
