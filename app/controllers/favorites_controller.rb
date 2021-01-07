@@ -7,7 +7,7 @@ class FavoritesController < ApplicationController
     if @favorite.save
       redirect_to trail_path(@favorite.trail)
     else
-      flash[:errors] = "Already favorited"
+      flash[:errors] = @favorite.errors.full_messages
       redirect_to trail_path(@favorite.trail)
     end
   end

@@ -16,9 +16,12 @@
 
 </div>
 
-<% if flash[:error] %>
-    <p><%= flash[:error] %></p>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+  <% end %>
 <% end %>
+
 
 <%= form_for(@favorite) do |f| %>
   <%= f.hidden_field :trail_id, value: @trail.id %>

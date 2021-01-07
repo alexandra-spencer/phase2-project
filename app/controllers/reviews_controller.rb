@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
         if @review.save
             redirect_to trail_path(@review.trail)
         else
-            flash[:errors] = "Already reviewed"
+            flash[:errors] = @review.errors.full_messages
             redirect_to trail_path(@review.trail)
         end
     end
