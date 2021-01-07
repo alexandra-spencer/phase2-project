@@ -18,7 +18,7 @@ class HikersController < ApplicationController
     end
 
     def welcome 
-        @welcome = "Welcome to Emerald Hikes!"
+        render 'welcome'
     end 
 
     def show

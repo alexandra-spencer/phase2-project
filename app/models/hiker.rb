@@ -20,6 +20,9 @@ class Hiker < ApplicationRecord
         "Have not rated"
        end 
     end 
+
+    # has_attached_file :avatar_img, styles: { hiker_index: "300x300>", hiker_show: "100x100>" }, default_url: "/images/:style/missing.png"
+    # validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 end
 
 

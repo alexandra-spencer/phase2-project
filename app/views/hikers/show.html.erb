@@ -14,12 +14,6 @@
         <p><img class="show-img" src=" <%= trail.img_url%>" alt="<%= trail.name%>" class="rounded-circle" width="500" height="400"></p>
     <% end %>
 
-  <%# if @user.avatar.attached? %>
-    <!--<img src= "<%#= url_for(@hiker.avatar.variant) %>"> -->
-  <%# end %>
-
-
-
   <%= button_to "Edit Profile", edit_hiker_path(@hiker), method: :get %>
 
   <%= button_to "Logout", logout_path, method: :delete %>
