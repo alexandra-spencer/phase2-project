@@ -1,15 +1,17 @@
-<div class="box">
+<div class="login-form">
   <h1>Login</h1>
+  <br/>
 
   <% if @error %>
       <p><%= @error %></p>
   <% end %>
 
   <%= form_tag "/login_form" do %>
-    <%= label_tag :username %>
-    <%= text_field_tag :username %>
-    <%= label_tag :password %>
-    <%= password_field_tag :password%>
-    <%= submit_tag "Login" %>
+    <p><%= label_tag :username %></p>
+    <p><%= text_field_tag :username %></p>
+    <p><%= label_tag :password %></p>
+    <p><%= password_field_tag :password%></p>
+    <p><%= submit_tag "Login" %></p>
   <% end %>
+  <br/>
 </div>
