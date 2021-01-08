@@ -1,33 +1,23 @@
-<div>
-  <p>
-    <h1><%=@trail.name%></h1>
-  </p>
 
-  <img class="show-img" src="<%= @trail.img_url %>" alt="<%= @trail.name%>" width="500" height="400">
+   <div class="box">
+    <h1> <%= @trail.name %> </h1>
+      <%= image_tag @trail.img_url, class: "trail-show",  width:"500px", height:"400px" %>
+        <h3 class="trail-location"><span>Location:</span> <%= @trail.location%></h3>
+        <h5 class="avg-rating">Average Rating</h5><%= @trail.average_rating%> ★ </h6>
+          <div id="trail-desc">
+            Description:<%= @trail.attraction %>
+          </div>
 
-  <p>Location: <%=@trail.location%></p>
-
-  <p>Difficulty: <%=@trail.difficulty%></p>
-
-  <p>Average Rating: <%= @trail.average_rating %> ★ </p>
-
-  <p>Description: <%=@trail.attraction%></p>
-</div>
-
-<%= form_for(@favorite) do |f| %>
-  <%= f.hidden_field :trail_id, value: @trail.id %>
-  <%= f.submit "Favorite" %>
-<% end %>
-
-<br/>
-
-
-   
-    <% if flash[:errors] %>
-      <% flash[:errors].each do |error| %>
-        <p><%= error %></p>
-      <% end %>
+    <%= form_for(@favorite) do |f| %>
+      <%= f.hidden_field :trail_id, value: @trail.id %>
+      <p><%= f.submit "Favorite", class: 'btn-custom2' %></p>
     <% end %>
+    <br/>
+        <% if flash[:errors] %>
+          <% flash[:errors].each do |error| %>
+            <p><%= error %></p>
+          <% end %>
+        <% end %>
 
     <%= form_for @review do |f| %>
       <%= f.hidden_field :trail_id, value: @trail.id %>
@@ -36,16 +26,14 @@
       <p><%= f.text_area :text, class: "form-control" %></p>
       <%= f.hidden_field(:hiker_id, value: @current_hiker.id) %>
       <%= f.hidden_field(:trail_id, value: @trail.id) %>
-      <%= f.submit "Post Review", class: "btn btn-group", style: "margin-top: 10px;" %>
+      <%= f.submit "Post Review", class: 'btn-custom2' %>
     <% end  %>
 
 
-<div>
-
-<h4>Reviews:</h4>
-<% @trail.reviews.each do |review| %>
-  <% @reviewer_id = review.hiker_id %>
-  <p><%= Hiker.all.find(@reviewer_id).username %> - <%= review.text %></p>
-<% end %>
+    <h4>Reviews:</h4>
+    <% @trail.reviews.each do |review| %>
+      <% @reviewer_id = review.hiker_id %>
+      <p><%= Hiker.all.find(@reviewer_id).username %> - <%= review.text %></p>
+    <% end %>
 
 </div>

@@ -1,6 +1,6 @@
 class HikersController < ApplicationController
 
-    skip_before_action :authorized?, only: [:login, :handle_login, :new, :create]
+    skip_before_action :authorized?, only: [:login, :handle_login, :new, :create, :welcome]
 
     def login
         @error = flash[:error]
