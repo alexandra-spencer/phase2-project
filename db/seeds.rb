@@ -18,6 +18,7 @@ alex = Hiker.create(name: "Alex", username:"as95", password:"abc123", experience
 greg = Hiker.create(name: "Greg", username:"gd20", password:"abc123", experience:"Intermediate", profile_pic_url: "https://ibb.co/sVKXDTb")
 erwin = Hiker.create(name: "Erwin", username:"ef25", password:"abc123", experience:"Novice", profile_pic_url: "https://ibb.co/sVKXDTb")
 jason = Hiker.create(name: "Jason", username:"jz98", password:"abc123", experience:"Expert", profile_pic_url: "https://ibb.co/sVKXDTb")
+eric = Hiker.create(name: "Eric", username:"ek11", password:"abc123", experience:"Intermediate", profile_pic_url: "https://ibb.co/sVKXDTb")
 
 #trails
 Trail.create(name: "Watkin's Glen State Park", location: "Watkins Glen, New York", difficulty: "Moderate",
@@ -90,6 +91,11 @@ rev2 = Review.create(text: "Hike was hard but got a lot of fresh air. Much neede
 rev3 = Review.create(text: "I've seen better views. Trail was a cake walk", rating: 2, hiker_id: erwin.id, trail_id: Trail.all.sample.id)
 rev4 = Review.create(text: "Turbo and I had a great time on this hike. Pet friendly", rating: 5, hiker_id: jason.id, trail_id: Trail.all.sample.id)
 rev5 = Review.create(text: "Mountains were breathtaking. A change from the loud city life", rating: 4, hiker_id: alex.id, trail_id: Trail.all.sample.id)
-
+rev6 = Review.create(text: "beautiful, green trees and fresh water...lots of sunshine", rating: 5, hiker_id: mai.id, trail_id: Trail.all.sample.id)
+rev7 = Review.create(text: "gorgeous scenery, saw a couple of wildlife on the trail", rating: 4, hiker_id: mai.id, trail_id: Trail.all.sample.id)
+rev8 = Review.create(text: "Hike was hard but got a lot of fresh air. Much needed time away from the noobs in the 1116 cohort", rating: 3, hiker_id: eric.id, trail_id: Trail.all.sample.id)
+rev9 = Review.create(text: "I've seen better views. Trail was a cake walk", rating: 2, hiker_id: erwin.id, trail_id: Trail.all.sample.id)
+rev10 = Review.create(text: "Turbo and I had a great time on this hike. Pet friendly", rating: 5, hiker_id: jason.id, trail_id: Trail.all.sample.id)
+rev11 = Review.create(text: "Mountains were breathtaking. A change from the loud city life", rating: 4, hiker_id: eric.id, trail_id: Trail.all.sample.id)
 
 puts "Data Seeded!"

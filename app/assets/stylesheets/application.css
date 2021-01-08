@@ -47,7 +47,6 @@ body {
     background-color: #dfecec;
     font-family: 'Noto Sans', sans-serif;
     background-attachment: fixed;
-    box-shadow: 3px 3px 5px 6px;
     border-radius: 5px;
 }
 
@@ -90,17 +89,17 @@ h1 {
 
 .login-form {
     align-items: center;
+    align-text: center;
     display: flex;
     flex-direction: column;
 }
 
-#greeting {
-    position: fixed;
+.greeting {
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 
 .navbar {
     width: 100%;
@@ -139,7 +138,7 @@ li {
       text-decoration: none;
     }
       &:hover { 
-      color: rgb(229, 246, 255);
+      color: rgb(47, 90, 112);
       }
     }
   }
@@ -161,36 +160,6 @@ li {
 }
 
 
-
-/* Edit Hiker Form styles */
-
-.edit-hiker-form {
-
-	@include background-tile;
-
-	:h1 {
-		margin-top: 0;
-	}
-
-	#hiker_name{
-		margin-bottom: 10px;
-    }
-    justify-content: center;
-    align-items: center;
-}
-
-.signup-form {
-	@include background-tile;
-
-	h2 {
-		margin-top: 0;
-	}
-}
-
-
-
-
-
 /* Style buttons */
 .btn {
   background-color: lightblue; /* Blue background */
@@ -202,7 +171,7 @@ li {
 }
 
 /* Darker background on mouse-over */
-.btn:hover {
+.btn-custom:hover {
   background-color: lightblue;
 }
 
@@ -210,3 +179,30 @@ li {
     height: 250px; 
     width: 250px; 
 }
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+#centerlogin {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.home-bg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+

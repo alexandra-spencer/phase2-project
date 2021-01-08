@@ -15,13 +15,11 @@
           <div class="trail-link">
             <%= link_to(trail.name, trail_path(trail), class: 'trail-link') %>
           </div>
-           <p>Rating: <%= @hiker.display_rating(trail.id)%> ★ </p>
+           <p>Your Rating: <%= @hiker.display_rating(trail.id)%> ★ </p>
           <p><img class="show-img" src=" <%= trail.img_url%>" alt="<%= trail.name%>" class="rounded-circle" width="500" height="400"></p>
       <% end %>
-    </div>
-    <br/>
-    <p><%= button_to "Delete My Account", hiker_path(@hiker), method: :delete, class: 'btn-custom2' %></p>
-    <br/>
+    
+      <p class="center"><%= button_to "Delete My Account", hiker_path(@hiker), method: :delete, class: 'btn-custom' %></p>
   </div>
  
   

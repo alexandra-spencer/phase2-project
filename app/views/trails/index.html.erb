@@ -1,6 +1,8 @@
+</br>
 <div class="box">
+    </br>
     <h1> Discover Trails</h1>
-
+    </br>
         <% @trails.each do |trail|%>
             <%= link_to trail.name, trail_path(trail), class: 'trail-link'%>
             <%= trail.location %>

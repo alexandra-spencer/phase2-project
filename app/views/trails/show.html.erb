@@ -1,16 +1,17 @@
+
 <div class="container">
 
   <h1 class="h1"> <%= @trail.name %> </h1> 
 
   <div class="row">
     <div class="col-sm-8">
-      <%= image_tag @trail.img_url, width:"450px", height:"450px" %>
+      <%= image_tag @trail.img_url, width:"500px", height:"450px" %>
     </div>
 
     <div class="col-sm-4">
       <div class="trail-desc">
         <p>Location: <%= @trail.location%></p>
-        <p>Average Rating: <%= @trail.average_rating%> ★ </p>
+        <p>Average Rating: <%= @trail.average_rating.round(1)%> ★ </p>
         <p>Description:<%= @trail.attraction %></p>
         <%= form_for(@favorite) do |f| %>
           <%= f.hidden_field :trail_id, value: @trail.id %>
@@ -39,6 +40,7 @@
         <%= f.hidden_field(:trail_id, value: @trail.id) %>
         <%= f.submit "Post Review", class: "btn btn-light" %>
       <% end  %>
+      <br/>
     </div>
 
     <div class="col-sm">
@@ -49,9 +51,7 @@
           <p><%= Hiker.all.find(@reviewer_id).username %> - <%= review.text %></p>
         <% end %>
       </div>
-
     </div>
   </div>
-
 </div>
 
