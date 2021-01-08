@@ -1,9 +1,9 @@
-<head><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script></head>
+<div class="box">
+    <h1> Discover Trails</h1>
 
-<h1 class="text-center"> Explore Trails</h1>
-
-<% @trails.each do |trail|%>
-    <p><%= link_to(trail.name, trail_path(trail))%> in <%= trail.location %></p>
-
-    <img class="show-img" src="<%= trail.img_url%>" alt="<%= trail.name%>">
-<% end %>
+        <% @trails.each do |trail|%>
+            <%= link_to trail.name, trail_path(trail), class: 'trail-link'%>
+            <%= trail.location %>
+            <p><img class="show-img" src="<%= trail.img_url%>" alt="<%= trail.name%>" width="500" height="400"></p>
+        <% end %>
+</div>

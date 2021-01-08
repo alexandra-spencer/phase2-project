@@ -13,3 +13,188 @@
  *= require_tree .
  *= require_self
  */
+
+
+/* body {
+    background-color: rgb(216, 234, 240);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+p {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+}
+
+#wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+} */
+
+
+/* General styles */
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    background-color: #dfecec;
+    font-family: 'Noto Sans', sans-serif;
+    background-attachment: fixed;
+    box-shadow: 3px 3px 5px 6px;
+    border-radius: 5px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    outline: black;
+    border: solid;
+    box-shadow: 3px 3px 5px 6px;
+    font-family: "Montserrat";
+}
+
+.trail-link {
+    color: rgb(89, 117, 89); 
+    font-family: 'Montserrat', sans-serif;
+}
+
+.div-with-scroll {
+    margin: auto;
+    display: flex;
+    height: 20vh;
+    width:50vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
+#greeting {
+    position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#trail-desc {
+    text-align: center;
+    text: wrap;
+}
+
+.signup-box{
+
+}
+
+.navbar {
+    width: 100%;
+    height: auto;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    opacity: .7; 
+    justify-content: space-around;
+}
+
+li {
+    display: inline
+}
+
+/* Button/link styles */
+
+.btn-custom {
+    color: #40524b;
+    background-color: #fff;
+    border: 3px solid darken(#2c2e2e, 5%);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+        &:hover {
+        text-decoration: none;
+        background-color: darken(#f1c40f, 5%);
+        color: #fff;
+        transition: 0.5s;
+    }
+    input[type='submit'] {
+      color: #006faa;
+      display: block;
+      padding: 0px 4px 0px 4px; 
+      text-decoration: none;
+      &:hover { 
+      color: rgb(229, 246, 255);
+      }
+    }
+  }
+
+
+.btn-custom2 {
+    color: rgb(66, 143, 146);
+    background-color: rgb(255, 255, 255);
+    border: 3x solid rgb(34, 100, 97);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    &:hover {
+        background-color: rgb(66, 143, 146);
+        color: #fff;
+        transition: 0.5s
+    }
+}
+
+
+
+/* Edit Hiker Form styles */
+
+.edit-hiker-form {
+
+	@include background-tile;
+
+	h1 {
+		margin-top: 0;
+	}
+
+	#hiker_name{
+		margin-bottom: 10px;
+	}
+}
+
+.signup-form {
+	@include background-tile;
+
+	h2 {
+		margin-top: 0;
+	}
+}
+
+.login-form {
+	@include background-tile;
+
+	h2 {
+		margin-top: 0;
+	}
+
+}
+
+
+/* Style buttons */
+.btn {
+  background-color: lightblue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: lightblue;
+}

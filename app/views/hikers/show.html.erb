@@ -1,24 +1,26 @@
 <h1> Welcome to Emerald Hikes, <%= @hiker.name %> </h1>
 
 
-<p><strong>Username:</strong><%= @hiker.username %></p>
-<p><strong> Experience Level:</strong> <%= @hiker.experience %></p>
-<p><strong> My Favorite Trails: </strong></p>
-<% @hiker.favorites.each do |favorite| %>
-  <p><%= link_to(favorite.trail.name, trail_path(favorite.trail.id)) %></p>
 
-  <%# if @user.avatar.attached? %>
-    <#img src= "<%#= url_for(@hiker.avatar) %>">
-  <%# end %>
+  <div class="box">
+    <h1> Welcome to Emerald Hikes, <%= @hiker.name %> </h1>
+    <p><strong>Username:</strong><%= @hiker.username %></p>
+    <% if @hiker.avatar.attached? %>
+      <img src="<%=(url_for(@hiker.avatar))%>">
+    <% end %>
+    <p><strong> Experience Level:</strong> <%= @hiker.experience %></p>
+    <p><strong> My Favorite Trails: </strong></p>
 
-  <img class="show-img" src="<%= favorite.trail.img_url%>" alt="<%= favorite.trail.name%>">
-<% end %>
+      <% @hiker.trails.each do |trail| %>
+          <div class="trail-link">
+            <%= link_to(trail.name, trail_path(trail), class: 'trail-link') %>
+          </div>
+           Rating: <%= @hiker.display_rating(trail.id)%> ★
+          <p><img class="show-img" src=" <%= trail.img_url%>" alt="<%= trail.name%>" class="rounded-circle" width="500" height="400"></p>
+      <% end %>
+    </div>
+  </div>
 
-
-<%= button_to "Edit Profile", edit_hiker_path(@hiker), method: :get %>
-
-<%= button_to "Logout", logout_path, method: :delete %>
-
-<%= button_to "Delete My Account", hiker_path(@hiker), method: :delete %>
+  <p><%= button_to "Delete My Account", hiker_path(@hiker), method: :delete, class: 'btn-custom2' %>
 
 
