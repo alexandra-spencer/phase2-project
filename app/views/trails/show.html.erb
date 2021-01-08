@@ -1,67 +1,57 @@
-<div class="box">
-    <h1> <%= @trail.name %> </h1>
-      <%= image_tag @trail.img_url, class: "trail-show",  width:"500px", height:"400px" %>
-        <h3 class="trail-location"><span>Location:</span> <%= @trail.location%></h3>
-        <h5 class="avg-rating">Average Rating</h5><%= @trail.average_rating%> ★ </h6>
-          <div id="trail-desc">
-            <p>Description:<%= @trail.attraction %></p>
-          </div>
+<div class="container">
 
-    <%= form_for(@favorite) do |f| %>
-      <%= f.hidden_field :trail_id, value: @trail.id %>
-      <p><%= f.submit "Favorite", class: 'btn-custom2' %></p>
-    <% end %>
-    <br/>
-        <% if flash[:errors] %>
-          <% flash[:errors].each do |error| %>
-            <p><%= error %></p>
-          <% end %>
+  <h1 class="h1"> <%= @trail.name %> </h1> 
+
+  <div class="row">
+    <div class="col-sm-8">
+      <%= image_tag @trail.img_url, width:"450px", height:"450px" %>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="trail-desc">
+        <p>Location: <%= @trail.location%></p>
+        <p>Average Rating: <%= @trail.average_rating%> ★ </p>
+        <p>Description:<%= @trail.attraction %></p>
+        <%= form_for(@favorite) do |f| %>
+          <%= f.hidden_field :trail_id, value: @trail.id %>
+          <p><%= f.submit "Favorite", class: 'btn-custom2' %></p>
         <% end %>
-
-    <%= form_for @review do |f| %>
-      <%= f.hidden_field :trail_id, value: @trail.id %>
-      <p><%= f.label :rate %>
-      <%= f.number_field :rating, in: 1..5 %></p>
-      <p><%= f.text_area :text, class: "form-control" %></p>
-      <%= f.hidden_field(:hiker_id, value: @current_hiker.id) %>
-      <%= f.hidden_field(:trail_id, value: @trail.id) %>
-      <%= f.submit "Post Review", class: 'btn-custom2' %>
-    <% end  %>
-
-
-    <h4>Reviews:</h4>
-    <% @trail.reviews.each do |review| %>
-      <% @reviewer_id = review.hiker_id %>
-      <p><%= Hiker.all.find(@reviewer_id).username %> - <%= review.text %></p>
-    <% end %>
-
-</div>
-
-<% if flash[:errors] %>
-  <% flash[:errors].each do |error| %>
-    <p><%= error %></p>
-  <% end %>
-<% end %>
-
-
-<%= form_for(@favorite) do |f| %>
-  <%= f.hidden_field :trail_id, value: @trail.id %>
-  <%= f.submit "Favorite" %>
-<% end %>
+      </div>
+    </div>
+  </div>
 
 <br/>
+    <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  <% end %>
 
-<%= form_for(@review) do |f| %>
-  <%= f.hidden_field :trail_id, value: @trail.id %>
-   <%= f.label :rate %>
-  <%= f.number_field :rating, in: 1..5 %>
-  <%= f.text_area :text %>
-  <%= f.submit "Leave a Review" %>
-<% end %>
+  <div class="row">
 
-<p>Reviews:</p>
-<% @trail.reviews.each do |review| %>
-  <% @reviewer_id = review.hiker_id %>
-  <%= Hiker.all.find(@reviewer_id).name %> - <%= review.text %>
-<% end %>
+    <div class="col-sm">
+      <%= form_for @review do |f| %>
+        <%= f.hidden_field :trail_id, value: @trail.id %>
+        <p> Rate </p>
+        <p><%= f.number_field :rating, in: 1..5 %></p>
+        <p><%= f.text_area :text, class: "form-control" %></p>
+        <%= f.hidden_field(:hiker_id, value: @current_hiker.id) %>
+        <%= f.hidden_field(:trail_id, value: @trail.id) %>
+        <%= f.submit "Post Review", class: "btn btn-light" %>
+      <% end  %>
+    </div>
+
+    <div class="col-sm">
+      <div class="reviews">
+        <h6>Reviews:</h6>
+        <% @trail.reviews.each do |review| %>
+          <% @reviewer_id = review.hiker_id %>
+          <p><%= Hiker.all.find(@reviewer_id).username %> - <%= review.text %></p>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 
