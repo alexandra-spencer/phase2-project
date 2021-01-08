@@ -1,11 +1,10 @@
-
-   <div class="box">
+<div class="box">
     <h1> <%= @trail.name %> </h1>
       <%= image_tag @trail.img_url, class: "trail-show",  width:"500px", height:"400px" %>
         <h3 class="trail-location"><span>Location:</span> <%= @trail.location%></h3>
         <h5 class="avg-rating">Average Rating</h5><%= @trail.average_rating%> ★ </h6>
           <div id="trail-desc">
-            Description:<%= @trail.attraction %>
+            <p>Description:<%= @trail.attraction %></p>
           </div>
 
     <%= form_for(@favorite) do |f| %>

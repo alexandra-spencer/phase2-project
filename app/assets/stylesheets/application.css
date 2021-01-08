@@ -69,9 +69,18 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.div-with-scroll {
+    margin: auto;
+    display: flex;
+    height: 20vh;
+    width:50vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
 
 #greeting {
-	position: fixed;
+    position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -79,9 +88,12 @@ body {
 
 #trail-desc {
     text-align: center;
-    white-space: wrap;
+    text: wrap;
 }
-/* Navbar/navigation styles */
+
+.signup-box{
+
+}
 
 .navbar {
     width: 100%;
